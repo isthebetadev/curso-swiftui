@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var progress: Float = 0
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+            ProgressView(value: progress)
+            
+            Button("Aumentar ProgressBar") {
+                progress += 0.10
+                print("Progreso: \(progress)")
+            }.padding(.top, 40)
+            
         }
         .padding()
     }
