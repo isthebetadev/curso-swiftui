@@ -8,12 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var iphoneCounter: Int = 1
+    @State var ipadCounter: Int = 1
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Form {
+                Text("Lista de la compra en Apple Store")
+                    .font(.headline)
+                    .foregroundStyle(.blue)
+                    .bold()
+                Stepper("iPhone: \(iphoneCounter)",
+                        value: $iphoneCounter,
+                        in: 1...5)
+                Stepper("iPad: \(ipadCounter)") {
+                    ipadCounter += 1
+                    print("Aumentando número de ipads a comprar... Ahora son: \(ipadCounter)")
+                } onDecrement: {
+                    if ipadCounter > 1 {
+                        ipadCounter -= 1
+                        print("Decrementando número de ipads a comprar... Ahora son: \(ipadCounter)")
+                    }
+                    
+                }
+            }
         }
         .padding()
     }
