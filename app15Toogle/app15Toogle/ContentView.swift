@@ -14,6 +14,10 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Form {
+                Text("Preferencias del usuario")
+                    .font(.headline)
+                    .foregroundStyle(.blue)
+                    .fontWeight(.bold)
                 Toggle("Suscribirse al boletín de noticias", isOn: $isSuscribing)
                 if isSuscribing {
                     Text("✅ Usuario suscrito al boletín de noticias")
