@@ -8,14 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var isPresented: Bool = false
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
+            Image(systemName: "house.fill")
                 .imageScale(.large)
-                .foregroundStyle(.tint)
+                .foregroundStyle(.mint)
             Text("Hello, world!")
-        }
-        .padding()
+                .fontWeight(.bold)
+                .foregroundStyle(.mint)
+                .font(.title3)
+        }.fullScreenCover(isPresented: $isPresented, 
+                          onDismiss: {isPresented = false}, 
+                          content: {
+                                ZStack {
+                                    Color.purple.ignoresSafeArea()
+                                    Button("Bienvenido") {
+                                        isPresented = false
+                                    }
+                                }
+        })
     }
 }
 
