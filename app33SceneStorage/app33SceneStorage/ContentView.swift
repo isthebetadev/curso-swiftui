@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var tweet: String = ""
-    @State private var tooglePublishBestHour = false
+    @SceneStorage("tweet") private var tweet: String = ""
+    @SceneStorage("toogle_publish_best_hour") private var tooglePublishBestHour = false
     
     var body: some View {
         VStack {
